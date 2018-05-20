@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Sgu.StudentTesting.PL.ViewModel.Test.TestVM>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body style="font-size:20px">
+    <table class="table">
+        <tr>
+            <th>
+                Название предмета
+            </th>
+            <th>
+                Дата прохождения
+            </th>
+            <th>
+                Результат
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameSubject)
+            </td>            
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result)
+            </td>
+            <td>
+                @Html.ActionLink("Вопросы","ListAnswers", new { idTest = item.IdTest, idUser=(int)ViewData["idUser"]})
+            </td>
+         </tr>
+    }    
+    </table>
+    <div>
+        @Html.ActionLink("Вернуться", "Index","Home")
+    </div>
+</body>
+</html>

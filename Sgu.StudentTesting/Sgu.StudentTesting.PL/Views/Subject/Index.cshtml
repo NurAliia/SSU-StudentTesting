@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Sgu.StudentTesting.PL.ViewModel.Subject.SubjectDisplayVM>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body style="font-size:20px">
+        <table class="table">
+            <tr>
+                <th>
+                    <h1>Предметы</h1>
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameSubject)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Пройти тест", "Test", new { id = (int)ViewData["IdUser"], idSubject = item.IdSubject})
+                    </td>
+                </tr>
+            }           
+        </table>
+    <div>
+        @Html.ActionLink("Вернуться", "Back")
+    </div>
+    </body>
+</html>

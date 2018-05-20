@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{75C6522E-5C18-4D38-B4E8-1ED1B1F550E6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sgu.StudentTesting.Config</RootNamespace>
+    <AssemblyName>Sgu.StudentTesting.Config</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sgu.StudentTesting.BLL.Contracts\Sgu.StudentTesting.BLL.Contracts.csproj">
+      <Project>{C767E5FA-1936-4190-BD34-EE8A73B9392B}</Project>
+      <Name>Sgu.StudentTesting.BLL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sgu.StudentTesting.BLL\Sgu.StudentTesting.BLL.csproj">
+      <Project>{9A7BB9DE-F67E-488D-B24E-3D36E6196F56}</Project>
+      <Name>Sgu.StudentTesting.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sgu.StudentTesting.DAL.Contracts\Sgu.StudentTesting.DAL.Contracts.csproj">
+      <Project>{3A29697D-812E-4FFC-B6F8-0766D955C811}</Project>
+      <Name>Sgu.StudentTesting.DAL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sgu.StudentTesting.DAL\Sgu.StudentTesting.DAL.csproj">
+      <Project>{D837DD32-6B8F-4F70-9C06-2CC71749F4EF}</Project>
+      <Name>Sgu.StudentTesting.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

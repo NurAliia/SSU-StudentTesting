@@ -1,0 +1,99 @@
+﻿@model Sgu.StudentTesting.PL.ViewModels.User.UserDisplayVM
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body style="margin-top:3%; font-size:20px">
+    <div>
+        <h4>Профиль</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Имя
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+    
+            <dt>
+                Фамилия
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SurName)
+            </dd>
+    
+            <dt>
+                Отчество
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Patronymic)
+            </dd>
+    
+            <dt>
+                Город
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
+    
+            <dt>
+                Университет
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.University)
+            </dd>
+    
+            <dt>
+                Факультет
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Faculty)
+            </dd>
+    
+            <dt>
+                Направление
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Direction)
+            </dd>
+    
+            <dt>
+                Почта
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.EMail)
+            </dd>
+    
+        </dl>
+    </div>
+    @if ((int)ViewData["role"] == 2)
+    {
+        using (Html.BeginForm("DetailsPost", "User", new { id = Model.Id }))
+        {
+            @*<div class="form-group">*@
+                <div class="col-md-offset-0 col-md-10">
+                    <input type="submit" value="Запросить права преподавателя" class="btn btn-default" />
+                </div>
+            @*</div>*@
+        }
+    }
+    @*<div>        
+        @Html.ActionLink("Редактировать", "Edit", new { id = Model.Id })
+    </div>*@
+    <div>
+        @Html.ActionLink("Вернуться", "Index")
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "New Tests";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>StartTest</title>
+</head>
+<body style="font-size:20px">
+    <div>
+        @Html.ActionLink("Вернуться к списку предметов", "Index", new { id = (int)ViewData["idUser"] })
+    </div>
+    @using (Html.BeginForm("TestPost", "Subject", new { id = (int)ViewData["idUser"], idSubject = (int)ViewData["idSubject"] }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="margin:20% 40%">
+         
+                <div class="col-md-offset-0 col-md-10">
+                    <input type="submit" value="Выполнить" class="btn btn-default" style="font-size:40px" />
+                </div>
+            
+        </div>
+    }
+</body>
+</html>

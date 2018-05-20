@@ -1,0 +1,88 @@
+﻿@model Sgu.StudentTesting.PL.ViewModel.Question.QuestionDisplayVM
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Вы уверены, что нужно удалить вопрос?</h3>
+    <div>
+        <hr/>
+        <dl class="dl-horizontal">
+            <dt>
+                Предмет
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IdSubject)
+            </dd>
+    
+            <dt>
+                Тема
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IdTheme)
+            </dd>
+    
+            <dt>
+                Вопрос
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Text)
+            </dd>
+    
+            <dt>
+                Ответ 1
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.VariantOfAnswer1)
+            </dd>
+    
+            <dt>
+                Ответ 2
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.VariantOfAnswer2)
+            </dd>
+    
+            <dt>
+                Ответ 3
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.VariantOfAnswer3)
+            </dd>
+    
+            <dt>
+                Ответ 4
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.VariantOfAnswer4)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Id)
+            <div class="form-actions no-color">
+                <input type="submit" value="Удалить" class="btn btn-default" /> |
+                @Html.ActionLink("Вернуться к списку вопросов", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

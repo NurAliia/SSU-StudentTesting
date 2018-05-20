@@ -1,0 +1,55 @@
+﻿@User.Identity.IsAuthenticated
+@{
+    ViewBag.Title = "Home Page";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body style="margin-top:-2%; font-size:20px">
+    @if (User.Identity.IsAuthenticated)
+    {
+        switch ((int)ViewData["role"])
+        {
+            case 1:
+                <h1>Привет, админ!</h1>
+                <div>
+                    @Html.ActionLink("Заявки на роль преподавателя", "NewTeacher", new { id = (int)ViewData["IdUser"] })
+                </div>
+                <div>
+                    @Html.ActionLink("Добавленные вопросы", "NewQuestion")
+                </div>
+
+                break;
+            case 2:
+                <h1>Привет, студент!</h1>
+                <div>
+                    @Html.ActionLink("Предметы","Subject", new { id = (int)ViewData["IdUser"]}) 
+                </div>
+                <div>
+                    @Html.ActionLink("Пройденные тесты", "Tests", new {id = (int)ViewData["IdUser"]})
+                </div>
+                break;
+            case 3:
+                <h1>Здравствуйте</h1>
+                <div>
+                    @Html.ActionLink("Список вопросов", "ListQuestion")
+                </div>
+                <div>
+                    @Html.ActionLink("Список студентов", "ListStudent", new { id = (int)ViewData["IdUser"] })
+                </div>
+                break;
+        }
+    }
+    else
+    {
+        <div>
+            <h1>
+                Для доступа к сайту зарегистрируйтесь или выполните вход!
+            </h1>
+        </div>
+    }
+</body>
+</html>

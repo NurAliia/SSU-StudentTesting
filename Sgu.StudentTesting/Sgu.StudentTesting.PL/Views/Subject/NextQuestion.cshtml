@@ -1,0 +1,24 @@
+﻿@model Sgu.StudentTesting.PL.ViewModel.Question.QuestionDisplayVM
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NextQuestion</title>
+</head>
+<body >
+    <div style="margin-top:7%; font-size:24px"> 
+       @using (Html.BeginForm("NextQuestion", "Subject", FormMethod.Post))
+       {
+            <p><b>@Html.DisplayFor(modelItem => Model.Text)</b></p>
+            <p><input name="answer" type="radio" value="1" checked> @Html.DisplayFor(modelItem => Model.VariantOfAnswer1)</p>
+            <p><input name="answer" type="radio" value="2" checked> @Html.DisplayFor(modelItem => Model.VariantOfAnswer2)</p>
+            <p><input name="answer" type="radio" value="3" checked> @Html.DisplayFor(modelItem => Model.VariantOfAnswer3)</p>
+            <p><input name="answer" type="radio" value="4" checked> @Html.DisplayFor(modelItem => Model.VariantOfAnswer4)</p>
+            <p><input type="submit" value="Выбрать"></p>
+       }
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Sgu.StudentTesting.PL.ViewModel.Question.QuestionInTestDisplayVM>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListAnswers</title>
+</head>
+<body style="font-size:20px">
+    <table class="table">
+        <tr>
+            <th>
+                Вопрос
+            </th>
+            <th>
+                Вариант 1
+            </th>
+            <th>
+                Вариант 2
+            </th>
+            <th>
+                Вариант 3
+            </th>
+            <th>
+                Вариант 4
+            </th>
+            <th>
+                Ответ
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VariantOfAnswer1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VariantOfAnswer2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VariantOfAnswer3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VariantOfAnswer4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer)
+            </td>
+        </tr>
+    }    
+    </table>
+    <div>
+        @Html.ActionLink("Вернуться","Index", new { id = (int)ViewData["idUser"]})
+    </div>
+</body>
+</html>

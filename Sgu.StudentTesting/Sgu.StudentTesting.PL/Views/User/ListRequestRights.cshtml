@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Sgu.StudentTesting.PL.ViewModels.User.UserDisplayVM>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListRequestRights</title>
+</head>
+<body style="font-size:18px">
+    <h2>Заявки на роль преподавателя</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Имя
+            </th>
+            <th>
+                Фамилия
+            </th>
+            <th>
+                Отчество
+            </th>
+            <th>
+                Город
+            </th>
+            <th>
+                Университет
+            </th>
+            <th>
+                Факультет
+            </th>
+            <th>
+                Направление
+            </th>
+            <th>
+                Почта
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patronymic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.University)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Faculty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMail)
+            </td>
+            <td>
+                @Html.ActionLink("Подтвердить", "AcceptedTeacher", new { id=item.Id }) |
+                @Html.ActionLink("Отклонить", "NotAcceptedTeacher", new { id = item.Id })
+            </td>
+        </tr>
+    }    
+    </table>
+    @Html.ActionLink("Вернуться", "BackToSubject")
+</body>
+</html>
